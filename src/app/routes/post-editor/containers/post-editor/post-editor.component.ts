@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'smb-post-editor',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-editor.component.scss']
 })
 export class PostEditorComponent implements OnInit {
+  public joditContent: string | null = null;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.joditContent = 'hello world';
   }
 
+  editorHandler($event: string) {
+    console.log($event);
+  }
 }

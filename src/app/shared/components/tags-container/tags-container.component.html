@@ -1,0 +1,28 @@
+<div class="smb-tags-container">
+  <mat-form-field class="smb-tags-container__form-field">
+    <mat-chip-list #chipList aria-label="Tag selection" class="smb-tags-container__form-field__chip-list">
+      <mat-chip class="smb-tags-container__form-field__chip-list__chip"
+        *ngFor="let tag of tags"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(tag)">
+        {{tag}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input class="smb-tags-container__form-field__chip-list__input"
+             #tagInput
+             [value]="value"
+             [formControl]="tagCtrl"
+             [matAutocomplete]="auto"
+             [matChipInputFor]="chipList"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let fruit of filteredTags | async" [value]="fruit">
+        {{fruit}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+

@@ -5,8 +5,8 @@ import * as fromComponents from './components';
 
 
 @NgModule({
-  declarations: [fromComponents.components],
+  declarations: [...fromComponents.components],
   imports: [CommonModule],
-  exports: [fromComponents.components]
+  exports: [...fromComponents.components]
 })
 export class CoreModule { }
