@@ -6,9 +6,11 @@ import { MaterialModule } from './material.module';
 import * as fromComponents from './components';
 
 
+const modules: any[] = [CommonModule, MaterialModule];
+
 @NgModule({
-  declarations: [fromComponents.components],
-  imports: [CommonModule, MaterialModule],
-  exports: [fromComponents.components]
+  declarations: [...fromComponents.components],
+  imports: [...modules],
+  exports: [...fromComponents.components]
 })
 export class SharedModule { }

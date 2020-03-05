@@ -1,1 +1,10 @@
-<p>post-editor works!</p>
+<div class="post-editor">
+  <div class="post-editor-header"></div>
+  <div class="post-editor-tags">
+    <smb-tags-container></smb-tags-container>
+  </div>
+  <br>
+  <div class="post-editor-jodit">
+    <smb-jodit-editor [content]="joditContent" (emitValue)="editorHandler($event)"></smb-jodit-editor>
+  </div>
+</div>
